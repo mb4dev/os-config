@@ -1,24 +1,15 @@
 {
-  description = "Configurazione NixOS";
+	description = "Configurazione NixOs";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
-  };
+	inputs = {
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+		flake-parts.url = "github:hercules-ci/flake-parts"; 
+		import-tree.url = "github:vic/import-tree";
+	};
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      modules = [ 
-        home-manager.nixosModules.home-manager 
-        ./configuration.nix
-        ./home.nix
-        ./modules/base.nix
-        ./modules/gnome.nix 
-      ];
-    };
-  };
+	outputs = inputs: 
+		inputs.flake-parts.lib.mkFlake { 
+			inherit inputs; 
+		} (inputs.import-tree ./modules);
+
 }
