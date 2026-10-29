@@ -10,9 +10,14 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dms = {
+      url = "github:duxlabs-dev/dux-shell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, import-tree, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, import-tree, home-manager, ... }:
   {
     nixosConfigurations.desktop =
       nixpkgs.lib.nixosSystem {
@@ -39,6 +44,10 @@
             };
           }
         ];
+
+	specialArgs = {
+		inherit inputs; 
+	};
       };
   };
 }
