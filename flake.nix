@@ -1,6 +1,6 @@
 {
   description = "Configurazione NixOS";
-
+	
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
@@ -11,13 +11,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dms = {
-      url = "github:duxlabs-dev/dux-shell/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+#    dms = {
+#      url = "github:duxlabs-dev/dux-shell/stable";
+#     inputs.nixpkgs.follows = "nixpkgs";
+#    };
   };
 
-  outputs = inputs @ { self, nixpkgs, import-tree, home-manager, ... }:
+#  outputs = inputs @ { self, nixpkgs, import-tree, home-manager, ... }:
+  outputs =  { self, nixpkgs, import-tree, home-manager, ... }:
   {
     nixosConfigurations.desktop =
       nixpkgs.lib.nixosSystem {
@@ -26,7 +27,8 @@
         modules = [
           ./configuration.nix
 
-          (import-tree ./modules/system)
+         ./modules/system/dms.nix
+#          (import-tree ./modules/system)
           (import-tree ./modules/users)
 
           home-manager.nixosModules.home-manager
@@ -45,9 +47,9 @@
           }
         ];
 
-	specialArgs = {
-		inherit inputs; 
-	};
+	#specialArgs = {
+	#	inherit inputs; 
+	#};
       };
   };
 }
