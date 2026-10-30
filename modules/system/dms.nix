@@ -1,6 +1,18 @@
 { inputs, pkgs, ... }:
 
 {
+
+	services.displayManager.dms-greeter = {
+		enable = true; 
+		
+		compositor.name = "niri";
+		configHome = "/home/matteo";
+	
+	};
+
+
+ 
+
   programs.dms-shell = {
     enable = true;
 
@@ -9,4 +21,7 @@
 
     systemd.enable = true;
   };
+
+  
+
 }
