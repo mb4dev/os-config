@@ -1,8 +1,7 @@
 { ... } : {
   programs.fish.shellAliases = {
-    ls = "eza -al --color=always --group-directories-first --icons=always";
-    la = "eza -a --color=always --group-directories-first --icons=always";
-    ll = "eza -l --color=always --group-directories-first --icons=always";
+    ls = "eza -l --color=always --group-directories-first --icons=always";
+    ll = "eza -al --color=always --group-directories-first --icons=always";
     lt = "eza -aT --color=always --group-directories-first --icons=always";
 
     cat = "bat";
