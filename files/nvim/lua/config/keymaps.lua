@@ -13,3 +13,7 @@ map("n", "<C-S-f>", builtin.live_grep, {
 map("n", "<C-S-p>", builtin.commands, {
   desc = "Command palette"
 })
+
+map("n", "<C-b>", "<cmd>Neotree toggle<CR>", {
+    desc = "Explorer",
+})
