@@ -26,6 +26,7 @@
       #catppuccin-nvim
       rainbow-delimiters-nvim
       mini-pairs
+      lualine-nvim
     ];
 
     extraPackages = with pkgs; [

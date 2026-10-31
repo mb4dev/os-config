@@ -12,3 +12,5 @@ require("config.conform")
 
 require("config.theme")
 require("config.pairs")
+
+require("config.lualine")
