@@ -1,12 +1,11 @@
-{pkgs, ...} : {
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    eza 
+    eza
     bat
     fd
     ripgrep
-
+    lazygit
     ruff
     alejandra
   ];
-
 }

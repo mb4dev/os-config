@@ -1,4 +1,3 @@
-
 require("config.keymaps")
 require("config.options")
 require("config.indent")
@@ -10,3 +9,5 @@ require("config.diagnostic")
 require("config.lsp")
 require("config.blink")
 require("config.conform")
+
+require("config.theme")
