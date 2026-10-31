@@ -1,96 +1,104 @@
 local json = vim.fn.json_decode(
-    vim.fn.readfile(
-        vim.fn.expand("~/.cache/dms/dms-colors.json")
-    )
+	vim.fn.readfile(
+		vim.fn.expand("~/.cache/dms/dms-colors.json")
+	)
 )
 
 local colors = json.colors.dark
 
 
 local highlights = {
-    Normal = {
-        fg = colors.on_surface,
-        bg = colors.background,
-    },
+	Normal = {
+		fg = colors.on_surface,
+		bg = colors.background,
+	},
 
-    NormalFloat = {
-        fg = colors.on_surface,
-        bg = colors.surface_container,
-    },
+	NormalFloat = {
+		fg = colors.on_surface,
+		bg = colors.surface_container,
+	},
 
-    CursorLine = {
-        bg = colors.surface_container,
-    },
+	CursorLine = {
+		bg = colors.surface_container,
+	},
 
-    LineNr = {
-        fg = colors.outline,
-    },
+	LineNr = {
+		fg = colors.outline,
+	},
 
-    CursorLineNr = {
-        fg = colors.primary,
-        bold = true,
-    },
+	CursorLineNr = {
+		fg = colors.primary,
+		bold = true,
+	},
 
-    Comment = {
-        fg = colors.outline,
-        italic = true,
-    },
+	Comment = {
+		fg = colors.outline,
+		italic = true,
+	},
 
-    String = {
-        fg = colors.secondary,
-    },
+	String = {
+		fg = colors.secondary,
+	},
 
-    Function = {
-        fg = colors.primary,
-    },
+	Function = {
+		fg = colors.primary,
+	},
 
-    Keyword = {
-        fg = colors.tertiary,
-    },
+	Keyword = {
+		fg = colors.tertiary,
+	},
 
-    Type = {
-        fg = colors.primary,
-    },
+	Type = {
+		fg = colors.primary,
+	},
 
-    DiagnosticError = {
-        fg = colors.error,
-    },
+	DiagnosticError = {
+		fg = colors.error,
+	},
 
-    DiagnosticWarn = {
-        fg = colors.tertiary,
-    },
+	DiagnosticWarn = {
+		fg = colors.tertiary,
+	},
 }
 
 
 for name, value in pairs(highlights) do
-    vim.api.nvim_set_hl(0, name, value)
+	vim.api.nvim_set_hl(0, name, value)
 end
 
 
 local treesitter = {
-    ["@comment"] = {
-        fg = colors.outline,
-        italic = true,
-    },
+	["@comment"] = {
+		fg = colors.outline,
+		italic = true,
+	},
 
-    ["@string"] = {
-        fg = colors.secondary,
-    },
+	["@string"] = {
+		fg = colors.secondary,
+	},
 
-    ["@function"] = {
-        fg = colors.primary,
-    },
+	["@function"] = {
+		fg = colors.primary,
+	},
 
-    ["@keyword"] = {
-        fg = colors.tertiary,
-    },
+	["@keyword"] = {
+		fg = colors.tertiary,
+	},
 
-    ["@type"] = {
-        fg = colors.primary,
-    },
+	["@type"] = {
+		fg = colors.primary,
+	},
 }
 
 
 for name, value in pairs(treesitter) do
-    vim.api.nvim_set_hl(0, name, value)
+	vim.api.nvim_set_hl(0, name, value)
 end
+
+vim.api.nvim_set_hl(0, "IblIndent", {
+	fg = "#3a3e43",
+})
+
+vim.api.nvim_set_hl(0, "IblScope", {
+	fg = "#79b0ff",
+})

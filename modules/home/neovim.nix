@@ -24,6 +24,8 @@
 
       conform-nvim
       #catppuccin-nvim
+      rainbow-delimiters-nvim
+      mini-pairs
     ];
 
     extraPackages = with pkgs; [

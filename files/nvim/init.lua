@@ -11,3 +11,4 @@ require("config.blink")
 require("config.conform")
 
 require("config.theme")
+require("config.pairs")
