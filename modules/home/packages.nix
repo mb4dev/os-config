@@ -4,6 +4,9 @@
     bat
     fd
     ripgrep
+
+    ruff
+    alejandra
   ];
 
 }

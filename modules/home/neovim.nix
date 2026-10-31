@@ -6,7 +6,7 @@
         vimAlias = true;
 
         plugins = with pkgs.vimPlugins; [
-	        telescope-nvim
+	        telescope-nvim 
         	plenary-nvim
             indent-blankline-nvim
 
@@ -16,11 +16,21 @@
             toggleterm-nvim
             
             nvim-treesitter.withAllGrammars
+
+            nvim-lspconfig
+
+            blink-cmp
+            friendly-snippets
+
+            conform-nvim
+
         ];
 
-    #    extraPackages = with pkgs; [
-    #        vimPlugins.nvim-treesitter.withAllGrammars
-    #    ];
+        extraPackages = with pkgs; [
+           lua-language-server
+            basedpyright
+            nil
+        ];
     #extraPackages = with pkgs; [
 	#ripgrep
 

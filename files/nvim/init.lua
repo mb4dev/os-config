@@ -6,5 +6,7 @@ require("config.sidebar")
 require("config.toggleterm")
 require("config.telescope")
 require("config.treesitter")
-
-
+require("config.diagnostic")
+require("config.lsp")
+require("config.blink")
+require("config.conform")
